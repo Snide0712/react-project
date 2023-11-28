@@ -1,0 +1,46 @@
+{
+  "movies": [
+    {
+      "id": 1,
+      "title": "The Grand Budapest Hotel",
+      "release_year": 2014,
+      "ticket_price": 10.99,
+      "poster_url": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Spirited Away",
+      "release_year": 2001,
+      "ticket_price": 10.99,
+      "poster_url": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/dL11DBPcRhWWnJcFXl9A07MrqTI.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Coco",
+      "release_year": 2017,
+      "ticket_price": 10.99,
+      "poster_url": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/eKi8dIrr8voobbaGzDpe8w0PVbC.jpg"
+    },
+    {
+      "id": 4,
+      "title": "1917",
+      "release_year": 2019,
+      "ticket_price": 10.99,
+      "poster_url": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/iZf0KyrE25z1sage4SYFLCCrMi9.jpg"
+    },
+    {
+      "id": 5,
+      "title": "1917",
+      "release_year": 2019,
+      "ticket_price": 10.99,
+      "poster_url": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/iZf0KyrE25z1sage4SYFLCCrMi9.jpg"
+    },
+    {
+      "id": 6,
+      "title": "1917",
+      "release_year": 2019,
+      "ticket_price": 10.99,
+      "poster_url": "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/iZf0KyrE25z1sage4SYFLCCrMi9.jpg"
+    }
+  ]
+}
