@@ -1,0 +1,49 @@
+input {
+  outline: 0;
+  border: 0;
+  background-color: rgba(45, 17, 187, 0.5);
+  width: 200px;
+  height: 40px;
+}
+
+.button {
+  background-color: rgb(46, 17, 187);
+  border: 0;
+  outline: 0;
+  height: 60px;
+  color: #fff;
+  margin: auto;
+  width: 400px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+label {
+  background-color: transparent;
+  width: 200px;
+}
+
+.line {
+  transform: translate(0, 0);
+}
+
+form {
+  width: 400px;
+  margin: auto;
+}
+
+h1 {
+  width: 200px;
+  margin: 50px auto;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 400px;
+}
+.links a {
+  text-decoration: none;
+  color: rgb(46, 17, 187);
+}

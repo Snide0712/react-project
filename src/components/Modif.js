@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import "./add.css";
+import { useNavigate, useParams } from "react-router-dom";
 
-function Add() {
+function Modif() {
+  const navigate = useNavigate();
+  const { id } = useParams();
+
   const [title, setTitle] = useState("");
   const [synopsis, setSynopsis] = useState("");
   const [author, setAuthor] = useState("");
@@ -11,6 +14,18 @@ function Add() {
   const [cover, setCover] = useState("");
   const [cost, setCost] = useState("");
 
+  useEffect(() => {
+    axios.get("http://localhost:5000/novels/" + id).then((res) => {
+      setTitle(res.data.title);
+      setSynopsis(res.data.synopsis);
+      setAuthor(res.data.author);
+      setPub_year(res.data.pub_year);
+      setPages(res.data.pages);
+      setCover(res.data.cover);
+      setCost(res.data.cost);
+    });
+  }, [id]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -18,16 +33,17 @@ function Add() {
       title: title,
       synopsis: synopsis,
       author: author,
-      pub_year: parseInt(pub_year),
-      pages: parseInt(pages),
+      pub_year: pub_year,
+      pages: pages,
       cover: cover,
-      cost: parseFloat(cost),
+      cost: cost,
     };
 
     axios
-      .post("http://localhost:5000/novels", newNovel)
+      .put(`http://localhost:5000/novels/${id}`, newNovel)
       .then((res) => {
         console.log(res);
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);
@@ -37,7 +53,7 @@ function Add() {
 
   return (
     <div className="addCtn">
-      <h2>Add Novel</h2>
+      <h2>Modify {title}</h2>
       <form onSubmit={handleSubmit}>
         <div className="box">
           <label>Title</label>
@@ -115,7 +131,7 @@ function Add() {
             />
           </div>
           <button className="submit" type="submit">
-            Add Novel
+            Modify {title}
           </button>
         </div>
       </form>
@@ -123,4 +139,4 @@ function Add() {
   );
 }
 
-export default Add;
+export default Modif;

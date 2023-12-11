@@ -6,7 +6,10 @@ import ListCard from "./components/ListCard";
 import Menu from "./components/Menu";
 import "./App.css";
 import { CartProvider } from "use-shopping-cart";
-
+import PdfCart from "./components/PdfCart";
+import Modif from "./components/Modif";
+import Loginclient from "./components/authentificationClient/loginClient";
+import Signup from "./components/authentificationClient/Signup";
 
 function App() {
   return (
@@ -15,9 +18,13 @@ function App() {
         <div className="App">
           <Menu />
           <Routes>
+            <Route path="/signup" exact element={<Signup />} />
+            <Route path="/loginclient" exact element={<Loginclient />} />;
             <Route path="/" element={<ListCard />} />
             <Route path="/Add" element={<Add />} />
             <Route path="/Cart" element={<Cart />} />
+            <Route path="/pdfCart" element={<PdfCart />} />
+            <Route path="/Modif/:id" element={<Modif />} />
           </Routes>
         </div>
       </Router>

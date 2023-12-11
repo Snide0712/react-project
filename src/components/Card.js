@@ -3,36 +3,60 @@ import { useShoppingCart } from "use-shopping-cart";
 import { IoAddCircle } from "react-icons/io5";
 import { BsWrenchAdjustableCircleFill } from "react-icons/bs";
 import { MdDelete } from "react-icons/md";
+import { Link } from "react-router-dom";
 
-function Card({ cards }) {
-  const { addItem } = useShoppingCart();
+function Card({ cards, deleteProd }) {
+  const { cartCount, cartDetails, addItem } = useShoppingCart();
+
+  const addToCart = (card) => {
+    const target = {
+      id: card.id,
+      title: card.title,
+      synopsis: card.synopsis,
+      author: card.author,
+      cover: card.cover,
+      pub_year: card.pub_year,
+      pages: card.pages,
+      cost: card.cost,
+    };
+    addItem(target);
+  };
 
   return (
     <>
+      <div className="cart-count">{cartCount}</div>
       {cards &&
         cards.map((card) => {
           return (
             <div className="card" key={card.id}>
-              <div className="img">
-                <img src={card.poster_url} alt={card.title} />
-              </div>
               <div className="info">
-                <p>{card.title}</p>
+                <p className="title">{card.title}</p>
                 <div className="lineCard">
-                  <p>{card.release_year}</p>
-                  <p>{card.ticket_price}$</p>
+                  <p>{card.pub_year}</p>
+                  <p>{card.cost}$</p>
                 </div>
-                <div className="btns">
-                  <button onClick={() => addItem(card)}>
-                    <IoAddCircle size={20} />
-                  </button>
-                  <button>
+                <p className="plot">{card.synopsis}</p>
+              </div>
+              <div className="img">
+                <img src={card.cover} alt={card.title} />
+              </div>
+              <div className="btns">
+                <button onClick={() => addToCart(card)}>
+                  <IoAddCircle size={20} />
+                </button>
+                <button>
+                  <Link to={`/Modif/${card.id}`} className="link">
                     <BsWrenchAdjustableCircleFill size={20} />
-                  </button>
-                  <button>
-                    <MdDelete size={20} />
-                  </button>
-                </div>
+                  </Link>
+                </button>
+                <button>
+                  <MdDelete
+                    onClick={() => {
+                      deleteProd(card.id);
+                    }}
+                    size={20}
+                  />
+                </button>
               </div>
             </div>
           );
